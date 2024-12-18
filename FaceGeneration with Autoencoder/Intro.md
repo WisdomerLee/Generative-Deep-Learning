@@ -21,3 +21,15 @@ Convoultion VAE의 과정에서 아래의 부분만 활용하는 것
 latent - decoder - output
 
 # Image Interpolation
+그림이 입력으로 들어가 encoder를 거쳐 latent space의 공간의 한 분포로 들어가고, 다른 그림도 latent space의 공간 한 분포로 들어감
+
+서로 다른 그림이 encoder로 다른 latent space의 공간으로 변환되면, 
+공간 사이에서 두 point의 보간으로 두 곳 사이의 지점을 정의할 수 있고, alpha라는 값을 도입하여, A와 B 중에 어느 곳에 더 가깝게 할 것인지를 지정할 수 있음
+그렇게 되면 그림은 A와 B의 사이의 중첩된 그림이 됨
+
+# 그림의 특성 조정
+역시 같은 특성을 가진여러 그림을 encoder로 latent space의 분포로 변환하고 나서 (클러스터 생성)
+다른 특성을 갖는 여러 그림을 encoder로 latent space의 분포로 변환
+그리고 나면
+latent space의 cluster에서 다른 cluster의 공간으로 변환시킴
+해당 latent space의 내용을 decoder로 그림으로 변환
